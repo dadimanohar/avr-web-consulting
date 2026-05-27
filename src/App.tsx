@@ -7,7 +7,6 @@ import { HomeView } from './pages/HomeView';
 import { AboutView } from './pages/AboutView';
 import { ServicesHubView } from './pages/ServicesHubView';
 import { IndustriesView } from './pages/IndustriesView';
-import { CityLandingView } from './pages/CityLandingView';
 import { BlogView } from './pages/BlogView';
 import { CaseStudiesView } from './pages/CaseStudiesView';
 import { PricingView } from './pages/PricingView';
@@ -20,7 +19,6 @@ type PageRoute =
   | 'about' 
   | 'services' 
   | 'industries' 
-  | 'cities' 
   | 'case-studies' 
   | 'blog' 
   | 'pricing' 
@@ -34,14 +32,12 @@ export default function App() {
   // Dropdown states for larger headers
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [industriesDropdownOpen, setIndustriesDropdownOpen] = useState(false);
-  const [citiesDropdownOpen, setCitiesDropdownOpen] = useState(false);
 
   const navigateTo = (route: PageRoute) => {
     setActiveRoute(route);
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
     setIndustriesDropdownOpen(false);
-    setCitiesDropdownOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -55,8 +51,6 @@ export default function App() {
         return <ServicesHubView />;
       case 'industries':
         return <IndustriesView />;
-      case 'cities':
-        return <CityLandingView />;
       case 'case-studies':
         return <CaseStudiesView />;
       case 'blog':
@@ -154,7 +148,6 @@ export default function App() {
                 onClick={() => {
                   setServicesDropdownOpen(!servicesDropdownOpen);
                   setIndustriesDropdownOpen(false);
-                  setCitiesDropdownOpen(false);
                 }}
                 className={`px-3 py-2 rounded-md text-xs font-semibold uppercase tracking-wider transition-colors flex items-center space-x-1 outline-none cursor-pointer ${
                   activeRoute === 'services' ? 'text-brand-blue-500 bg-brand-blue-500/5' : 'text-slate-300 hover:text-white'
@@ -186,7 +179,6 @@ export default function App() {
                 onClick={() => {
                   setIndustriesDropdownOpen(!industriesDropdownOpen);
                   setServicesDropdownOpen(false);
-                  setCitiesDropdownOpen(false);
                 }}
                 className={`px-3 py-2 rounded-md text-xs font-semibold uppercase tracking-wider transition-colors flex items-center space-x-1 outline-none cursor-pointer ${
                   activeRoute === 'industries' ? 'text-brand-blue-500 bg-brand-blue-500/5' : 'text-slate-300 hover:text-white'
@@ -205,32 +197,7 @@ export default function App() {
               )}
             </div>
 
-            {/* Dropdown 3: GEO City Landing Pages */}
-            <div className="relative">
-              <button
-                onClick={() => {
-                  setCitiesDropdownOpen(!citiesDropdownOpen);
-                  setServicesDropdownOpen(false);
-                  setIndustriesDropdownOpen(false);
-                }}
-                className={`px-3 py-2 rounded-md text-xs font-semibold uppercase tracking-wider transition-colors flex items-center space-x-1 outline-none cursor-pointer ${
-                  activeRoute === 'cities' ? 'text-brand-blue-500 bg-brand-blue-500/5' : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                <span>City Hubs</span>
-                <ChevronDown className="w-3.5 h-3.5" />
-              </button>
-              {citiesDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-40 bg-navy-900 border border-slate-800 rounded-lg shadow-xl p-2 py-3 space-y-1">
-                  <button onClick={() => navigateTo('cities')} className="w-full text-left text-xs py-1.5 px-3 text-slate-300 hover:text-white rounded">Delhi NCR</button>
-                  <button onClick={() => navigateTo('cities')} className="w-full text-left text-xs py-1.5 px-3 text-slate-300 hover:text-white rounded">Bangalore</button>
-                  <button onClick={() => navigateTo('cities')} className="w-full text-left text-xs py-1.5 px-3 text-slate-300 hover:text-white rounded">Chennai</button>
-                  <button onClick={() => navigateTo('cities')} className="w-full text-left text-xs py-1.5 px-3 text-slate-300 hover:text-white rounded">Hyderabad</button>
-                  <button onClick={() => navigateTo('cities')} className="w-full text-left text-xs py-1.5 px-3 text-slate-300 hover:text-white rounded">Mumbai</button>
-                  <button onClick={() => navigateTo('cities')} className="w-full text-left text-xs py-1.5 px-3 text-slate-300 hover:text-white rounded">Pune</button>
-                </div>
-              )}
-            </div>
+
 
             <button 
               onClick={() => navigateTo('case-studies')} 
@@ -294,7 +261,6 @@ export default function App() {
               <button onClick={() => navigateTo('about')} className="w-full text-left py-2 px-3 text-xs uppercase font-semibold hover:bg-slate-800 rounded">About Us</button>
               <button onClick={() => navigateTo('services')} className="w-full text-left py-2 px-3 text-xs uppercase font-semibold hover:bg-slate-800 rounded">Services</button>
               <button onClick={() => navigateTo('industries')} className="w-full text-left py-2 px-3 text-xs uppercase font-semibold hover:bg-slate-800 rounded">Industries</button>
-              <button onClick={() => navigateTo('cities')} className="w-full text-left py-2 px-3 text-xs uppercase font-semibold hover:bg-slate-800 rounded">City Hubs</button>
               <button onClick={() => navigateTo('case-studies')} className="w-full text-left py-2 px-3 text-xs uppercase font-semibold hover:bg-slate-800 rounded">Cases</button>
               <button onClick={() => navigateTo('blog')} className="w-full text-left py-2 px-3 text-xs uppercase font-semibold hover:bg-slate-800 rounded">Blog</button>
               <button onClick={() => navigateTo('pricing')} className="w-full text-left py-2 px-3 text-xs uppercase font-semibold hover:bg-slate-800 rounded">Pricing</button>
@@ -312,7 +278,7 @@ export default function App() {
 
       {/* Dynamic Visual Footer */}
       <footer className="bg-navy-900 border-t border-slate-800/80 pt-16 pb-8 px-4 sm:px-6 lg:px-8 mt-16 text-xs text-slate-400">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-b border-slate-800 pb-12 mb-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-slate-800 pb-12 mb-8">
           
           {/* Column 1: AVR Web Consulting Bio */}
           <div className="space-y-4">
@@ -336,18 +302,7 @@ export default function App() {
             </ul>
           </div>
 
-          {/* Column 3: GEO City Landing Hubs */}
-          <div className="space-y-4">
-            <h4 className="text-white font-display font-medium text-sm">GEO Cities Coverage</h4>
-            <ul className="space-y-2">
-              <li><button onClick={() => navigateTo('cities')} className="hover:text-brand-blue-500 transition-colors">Delhi NCR Regional Node</button></li>
-              <li><button onClick={() => navigateTo('cities')} className="hover:text-brand-blue-500 transition-colors">Bangalore Silicon Node</button></li>
-              <li><button onClick={() => navigateTo('cities')} className="hover:text-brand-blue-500 transition-colors">Chennai Industrial Node</button></li>
-              <li><button onClick={() => navigateTo('cities')} className="hover:text-brand-blue-500 transition-colors">Hyderabad IT Node</button></li>
-            </ul>
-          </div>
-
-          {/* Column 4: Central Office NAP details */}
+          {/* Column 3: Central Office NAP details */}
           <div className="space-y-4">
             <h4 className="text-white font-display font-medium text-sm">Verified Corporate Contact</h4>
             <ul className="space-y-2.5 leading-relaxed">
