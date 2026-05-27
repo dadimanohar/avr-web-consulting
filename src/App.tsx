@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { HomeView } from './pages/HomeView';
 import { AboutView } from './pages/AboutView';
-import { ServicesHubView } from './pages/ServicesHubView';
+import { ServicesView } from './pages/ServicesView';
 import { IndustriesView } from './pages/IndustriesView';
 import { BlogView } from './pages/BlogView';
 import { CaseStudiesView } from './pages/CaseStudiesView';
@@ -48,7 +48,7 @@ export default function App() {
       case 'about':
         return <AboutView />;
       case 'services':
-        return <ServicesHubView />;
+        return <ServicesView />;
       case 'industries':
         return <IndustriesView />;
       case 'case-studies':
@@ -142,7 +142,7 @@ export default function App() {
               About Us
             </button>
 
-            {/* Dropdown 1: Custom Services Hub Dropdowns */}
+            {/* Dropdown 1: Custom Services Dropdowns */}
             <div className="relative">
               <button
                 onClick={() => {
@@ -153,7 +153,7 @@ export default function App() {
                   activeRoute === 'services' ? 'text-brand-blue-500 bg-brand-blue-500/5' : 'text-slate-300 hover:text-white'
                 }`}
               >
-                <span>Services Hub</span>
+                <span>Services</span>
                 <ChevronDown className="w-3.5 h-3.5" />
               </button>
               {servicesDropdownOpen && (
@@ -162,7 +162,7 @@ export default function App() {
                     onClick={() => navigateTo('services')}
                     className="w-full text-left font-semibold text-xs py-2 px-3 text-slate-300 hover:text-white hover:bg-slate-800 rounded"
                   >
-                    All Hubs Overview
+                    All Services Overview
                   </button>
                   <hr className="border-slate-800 my-1" />
                   <span className="block text-[8px] font-mono font-bold text-slate-500 uppercase px-3">SPECIALTIES</span>

@@ -11,6 +11,50 @@ interface AuditResult {
   recommendations: string[];
 }
 
+function CountUpScore({ score }: { score: number }) {
+  const [displayScore, setDisplayScore] = useState(0);
+
+  React.useEffect(() => {
+    let start = 0;
+    const end = score;
+    const duration = 1200; // ms
+    const startTime = performance.now();
+    let animationFrameId: number;
+
+    const updateScore = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing out easeOutQuad
+      const easedProgress = progress * (2 - progress);
+      const current = Math.floor(start + (end - start) * easedProgress);
+      
+      setDisplayScore(current);
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(updateScore);
+      } else {
+        setDisplayScore(end);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(updateScore);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [score]);
+
+  // Color interpolation: Red (239, 68, 68) to Amber (245, 158, 11)
+  const ratio = score > 0 ? displayScore / score : 0;
+  const r = Math.round(239 + (245 - 239) * ratio);
+  const g = Math.round(68 + (158 - 68) * ratio);
+  const b = Math.round(68 + (11 - 68) * ratio);
+  const colorString = `rgb(${r}, ${g}, ${b})`;
+
+  return <span style={{ color: colorString }}>{displayScore}</span>;
+}
+
 export function AIAuditTool() {
   const [url, setUrl] = useState('');
   const [keyword, setKeyword] = useState('');
@@ -214,13 +258,19 @@ export function AIAuditTool() {
           <div className="space-y-6">
             {/* Score Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center border-b border-slate-800 pb-6">
-              <div className="flex flex-col items-center text-center bg-[#05070c] p-4 rounded-xl border border-slate-800">
+              <motion.div 
+                className="flex flex-col items-center text-center bg-[#05070c] p-4 rounded-xl border border-slate-800"
+                initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+              >
                 <span className="text-xs text-slate-400 uppercase font-mono mb-1">Visibility Score</span>
-                <span className={`text-4xl font-display font-bold ${result.score > 60 ? 'text-amber-400' : 'text-rose-500'}`}>
-                  {result.score}/100
+                <span className="text-4xl font-display font-bold text-slate-300">
+                  <CountUpScore score={result.score} />
+                  <span className="text-xl text-slate-600 font-semibold">/100</span>
                 </span>
                 <span className="text-xs text-slate-500 mt-2 font-mono">Needs Serious Optimization</span>
-              </div>
+              </motion.div>
 
               <div className="space-y-2 md:col-span-2">
                 <div className="flex justify-between items-center bg-[#05070c] px-4 py-2 border border-slate-800 rounded-lg">

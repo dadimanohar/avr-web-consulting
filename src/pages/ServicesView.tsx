@@ -3,11 +3,11 @@ import { Eye, HelpCircle, Code, ShieldCheck, Scale, Compass, Layers, Globe, MapP
 import { SERVICE_DATA } from '../data';
 import { ServiceItem } from '../types';
 
-export function ServicesHubView() {
-  const [activeHub, setActiveHub] = useState<'seo' | 'ai-seo' | 'ppc' | 'content' | 'web-dev'>('seo');
+export function ServicesView() {
+  const [activeCategory, setActiveCategory] = useState<'seo' | 'ai-seo' | 'ppc' | 'content' | 'web-dev'>('seo');
   const [selectedServiceId, setSelectedServiceId] = useState<string>('seo-local');
 
-  const hubsList = [
+  const categoriesList = [
     { id: 'seo', name: 'Traditional SEO', count: 4, icon: Globe },
     { id: 'ai-seo', name: 'Advanced AI SEO', count: 5, icon: Cpu },
     { id: 'ppc', name: 'Paid Advertising', count: 2, icon: TrendingUp },
@@ -15,13 +15,13 @@ export function ServicesHubView() {
     { id: 'web-dev', name: 'Web Design & Dev', count: 2, icon: Code },
   ];
 
-  const filteredServices = SERVICE_DATA.filter(s => s.hub === activeHub);
+  const filteredServices = SERVICE_DATA.filter(s => s.hub === activeCategory);
   const selectedService = SERVICE_DATA.find(s => s.id === selectedServiceId) || filteredServices[0];
 
-  // Auto select first item of the hub when hub switches
-  const handleHubChange = (hubId: 'seo' | 'ai-seo' | 'ppc' | 'content' | 'web-dev') => {
-    setActiveHub(hubId);
-    const related = SERVICE_DATA.filter(s => s.hub === hubId);
+  // Auto select first item of the category when category switches
+  const handleCategoryChange = (catId: 'seo' | 'ai-seo' | 'ppc' | 'content' | 'web-dev') => {
+    setActiveCategory(catId);
+    const related = SERVICE_DATA.filter(s => s.hub === catId);
     if (related.length > 0) {
       setSelectedServiceId(related[0].id);
     }
@@ -41,22 +41,22 @@ export function ServicesHubView() {
       {/* Page header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white tracking-tight">
-          AVR Specialized Solutions Hub
+          AVR Specialized Solutions &amp; Services
         </h1>
         <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
           Navigate our multi-tier services including Global SEO, Answer Engine Optimization (AEO), Paid Social Ads, and custom SEO-First development platforms.
         </p>
       </div>
 
-      {/* Hub selector tabs row */}
+      {/* Category selector tabs row */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3 border-b border-slate-800 pb-4">
-        {hubsList.map((hub) => {
-          const isSelected = activeHub === hub.id;
-          const IconComponent = hub.icon;
+        {categoriesList.map((cat) => {
+          const isSelected = activeCategory === cat.id;
+          const IconComponent = cat.icon;
           return (
             <button
-              key={hub.id}
-              onClick={() => handleHubChange(hub.id as any)}
+              key={cat.id}
+              onClick={() => handleCategoryChange(cat.id as any)}
               className={`p-3 rounded-lg text-left transition-all border outline-none cursor-pointer flex flex-col justify-between h-24 ${
                 isSelected 
                   ? 'bg-brand-blue-500/10 border-brand-blue-500 text-white' 
@@ -65,8 +65,8 @@ export function ServicesHubView() {
             >
               <IconComponent className={`w-5 h-5 ${isSelected ? 'text-brand-blue-500' : 'text-slate-500'}`} />
               <div>
-                <span className="text-xs font-semibold block">{hub.name}</span>
-                <span className="text-[10px] text-slate-500">{hub.count} Specialized Modules</span>
+                <span className="text-xs font-semibold block">{cat.name}</span>
+                <span className="text-[10px] text-slate-500">{cat.count} Specialized Modules</span>
               </div>
             </button>
           );
@@ -102,7 +102,7 @@ export function ServicesHubView() {
             </div>
           </div>
 
-          {/* Quick Hub summary */}
+          {/* Quick summary */}
           <div className="bg-[#05070c] border border-slate-800 p-4 rounded-xl space-y-3">
             <h4 className="text-white text-xs font-mono font-bold uppercase tracking-wider">AEO and Citation Logic</h4>
             <p className="text-slate-400 text-[11px] leading-relaxed">
@@ -165,8 +165,8 @@ export function ServicesHubView() {
             </div>
           </div>
 
-          {/* Modular comparison preview table depending on active Hub */}
-          {activeHub === 'seo' && (
+          {/* Modular comparison preview table depending on active category */}
+          {activeCategory === 'seo' && (
             <div className="bg-[#05070c] border border-slate-850 p-4 rounded-xl space-y-3">
               <h4 className="text-white text-xs font-semibold flex items-center space-x-2">
                 <Scale className="w-4 h-4 text-brand-blue-500" />
@@ -178,7 +178,7 @@ export function ServicesHubView() {
             </div>
           )}
 
-          {activeHub === 'ai-seo' && (
+          {activeCategory === 'ai-seo' && (
             <div className="bg-[#05070c] border border-slate-850 p-4 rounded-xl space-y-3">
               <h4 className="text-white text-xs font-semibold flex items-center space-x-2">
                 <Compass className="w-4 h-4 text-emerald-400" />
