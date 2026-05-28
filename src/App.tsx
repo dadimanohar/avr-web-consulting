@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Lenis from 'lenis';
 import { 
   Building, Phone, Mail, Globe, Sparkles, MapPin, Menu, X, 
   ChevronDown, ArrowRight, MessageSquare, Bot, ShieldCheck, Gamepad 
@@ -32,6 +33,30 @@ export default function App() {
   // Dropdown states for larger headers
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [industriesDropdownOpen, setIndustriesDropdownOpen] = useState(false);
+
+  // Initialize Lenis Smooth Scroll
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+    });
+
+    let frameId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      frameId = requestAnimationFrame(raf);
+    }
+
+    frameId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      lenis.destroy();
+    };
+  }, []);
 
   const navigateTo = (route: PageRoute) => {
     setActiveRoute(route);

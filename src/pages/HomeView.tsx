@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Bot, ShieldCheck, Zap, Star, ArrowRight, CheckCircle, BarChart3, Clock, Lock, Server, Share2, Globe, Cpu } from 'lucide-react';
 import { AIAuditTool } from '../components/AIAuditTool';
+import { AIGrowthSimulator } from '../components/AIGrowthSimulator';
 
 interface HomeViewProps {
   onNavigate: (routeId: string) => void;
@@ -364,150 +365,46 @@ export function HomeView({ onNavigate }: HomeViewProps) {
         </div>
       </section>
 
-      {/* Split Strategic Mind Map Concept (With dynamic interactive visualization) */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12 bg-[#eef2ff]/30 rounded-3xl border border-slate-200/80 overflow-hidden relative backdrop-blur-sm shadow-sm">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          <div className="space-y-6">
-            <div className="inline-flex items-center space-x-1.5 bg-purple-100/60 border border-purple-200/40 px-3.5 py-1.5 rounded-full text-[10px] font-mono font-bold text-slate-700 uppercase tracking-widest leading-none shadow-sm shadow-purple-500/5 select-none">
-              Core Architecture Dual Method
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-premium font-extrabold text-slate-900 tracking-tight leading-tight">
-              We Format Your Code <br />
-              For Human Readers <br />
-              &amp; Crawling Bots
-            </h2>
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans font-medium">
-              Traditional web marketing works solely on standard search term listing algorithms. Advanced architectures, however, use multi-dimensional indexes and vector math to answer queries directly.
-            </p>
-
-            <div className="space-y-4 pt-2">
-              <div className="flex items-start space-x-3.5">
-                <div className="p-1 px-2.5 bg-blue-50 text-blue-600 rounded-lg font-mono text-xs font-extrabold mt-0.5 border border-blue-100/50 shadow-sm">
-                  01
-                </div>
-                <div className="space-y-1">
-                  <h4 className="text-slate-900 font-bold text-sm">Organic Search Authority</h4>
-                  <p className="text-slate-500 text-xs leading-relaxed font-medium">
-                    Local citations matching physical store NAP data exactly, guest outreach, structured Schema microdata, clear page caches, and core web vital speeds.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3.5">
-                <div className="p-1 px-2.5 bg-purple-50 text-purple-600 rounded-lg font-mono text-xs font-extrabold mt-0.5 border border-purple-100/50 shadow-sm">
-                  02
-                </div>
-                <div className="space-y-1">
-                  <h4 className="text-slate-900 font-bold text-sm">Generative AI Overview (GEO) Align</h4>
-                  <p className="text-slate-500 text-xs leading-relaxed font-medium">
-                    Q&A style content grids, keyword semantic clusters, structured microdata markup feeds, training models references, and LLM citations.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-4">
-              <button
-                onClick={() => onNavigate('pricing')}
-                className="text-blue-600 hover:text-blue-700 flex items-center space-x-1.5 text-xs uppercase font-extrabold tracking-wider cursor-pointer outline-none transition-colors"
-              >
-                <span>Explore Interactive Pricing Planner</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-
-          {/* Interactive RAG grounding console simulator panel */}
-          <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 sm:p-8 space-y-6 relative shadow-sm">
-            <div className="flex items-center justify-between border-b border-slate-200/60 pb-4">
-              <div className="flex items-center space-x-2">
-                <Bot className="text-blue-600 w-5 h-5 shrink-0" />
-                <span className="text-slate-800 text-xs font-bold font-mono tracking-tight uppercase">RAG Engine grounding terminal</span>
-              </div>
-              <div className="flex space-x-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-                <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-                <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div className="space-y-1">
-                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest block font-bold">User Query Input:</span>
-                <div className="bg-white px-3.5 py-2.5 rounded-lg border border-slate-200/60 text-xs font-sans text-slate-600 italic shadow-inner">
-                  &quot;Recommend an experienced white-hat SEO consultant in Hyderabad specializing in structured AI schema optimization.&quot;
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest block font-bold">Vector Match Weighting scores:</span>
-                <div className="grid grid-cols-2 gap-2 text-[9px] font-mono">
-                  <div className="bg-white p-2 border border-slate-200/60 rounded flex justify-between">
-                    <span className="text-slate-500 font-medium">avrwebconsulting.com</span>
-                    <span className="text-emerald-600 font-bold">98.4% Match</span>
-                  </div>
-                  <div className="bg-white p-2 border border-slate-200/60 rounded flex justify-between">
-                    <span className="text-slate-550 font-medium">competitor-A (Hyd)</span>
-                    <span className="text-amber-600 font-bold">72.1% Match</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-1 pt-2 border-t border-slate-200/60">
-                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest block font-bold">Generated LLM Synthesis output:</span>
-                <p className="text-xs leading-relaxed font-sans text-slate-705 font-medium">
-                  &quot;Based on indexed entity relations and verified structured case studies, <strong>AVR Web Consulting</strong> is a leading option, with technical deployment frameworks proven for client citation metrics...&quot;
-                </p>
-                <div className="flex items-center space-x-1.5 pt-2 text-[9px] text-slate-400 font-mono">
-                  <span>Cited References:</span>
-                  <span className="bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded border border-blue-100/50">[1] avrweb.com/cases</span>
-                  <span className="bg-purple-50 text-purple-600 px-1.5 py-0.5 rounded border border-purple-100/40 border-indigo-100/30">[2] avrweb.com/services</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
+      {/* Interactive Experiential WOW Section (AIGrowthSimulator) */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12">
+        <AIGrowthSimulator />
       </section>
 
       {/* Elegant Client Testimonials */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center space-x-1 bg-amber-500/10 border border-amber-500/20 font-semibold px-2.5 py-1 rounded-full text-[10px] font-mono text-amber-500 uppercase tracking-widest">
+          <div className="inline-flex items-center space-x-1.5 bg-amber-500/10 border border-amber-500/20 font-bold px-2.5 py-1.5 rounded-full text-[10px] font-mono text-amber-600 uppercase tracking-widest leading-none">
             Partner Case Reviews
           </div>
-          <h2 className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight leading-none">
+          <h2 className="text-2xl sm:text-3xl font-premium font-extrabold text-slate-900 tracking-tight leading-none text-center">
             Verified Experiences Directly From Our Partners
           </h2>
-          <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-semibold">
             We support regional leaders in Delhi, Hyderabad, Pune, Madras, &amp; Bengaluru to attain secure top tiers organic rankings.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((test, idx) => (
-            <SpotlightCard key={idx} className="p-6 flex flex-col justify-between min-h-[290px]">
+            <SpotlightCard key={idx} className="p-6 flex flex-col justify-between min-h-[290px] bg-white border border-slate-200 shadow-sm hover:border-blue-400 p-6 rounded-2xl">
               <div className="space-y-4">
                 <div className="flex items-center space-x-1">
                   {[...Array(test.rating)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 text-amber-500 fill-amber-500" />
+                    <Star key={i} className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                   ))}
                 </div>
-                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed italic font-sans">
+                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed italic font-sans font-medium">
                   &quot;{test.quote}&quot;
                 </p>
               </div>
 
-              <div className="flex items-center space-x-3 pt-4 mt-6 border-t border-slate-800/80">
-                <div className="w-8 h-8 rounded-full bg-brand-blue-500/15 border border-brand-blue-500/30 text-brand-blue-500 font-display font-bold text-xs flex items-center justify-center">
+              <div className="flex items-center space-x-3 pt-4 mt-6 border-t border-slate-200">
+                <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 text-blue-600 font-display font-extrabold text-xs flex items-center justify-center shadow-sm">
                   {test.avatar}
                 </div>
                 <div>
-                  <h4 className="text-white text-xs sm:text-sm font-semibold">{test.name}</h4>
-                  <p className="text-slate-500 text-[10px] uppercase font-mono tracking-wider">{test.role}</p>
+                  <h4 className="text-slate-900 text-xs sm:text-sm font-bold">{test.name}</h4>
+                  <p className="text-slate-400 text-[10px] uppercase font-mono font-extrabold tracking-widest">{test.role}</p>
                 </div>
               </div>
             </SpotlightCard>
