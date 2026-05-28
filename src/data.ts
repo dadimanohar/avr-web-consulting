@@ -44,7 +44,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   // 1. SEO Services Hub
   {
     id: "seo-global",
-    hub: "seo",
+    category: "seo",
     title: "Global SEO Optimization",
     description: "Expand your digital footprint internationally with multilingual architectures, clean international backlink assets, and dedicated hreflang tag alignment.",
     detailedContent: "Global SEO is the science of preparing your digital presence to rank across multiple countries. By designing search-compliant multi-regional architectures (such as subfolders or ccTLDs), we signal contextual relevance to global crawlers. We craft customized, multilingually localized content strategies targeting local search volumes, and construct reputable, region-specific backlink assets. This guarantees you are visible in global hubs like the US, UK, UAE, and Singapore naturally.",
@@ -70,7 +70,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   },
   {
     id: "seo-local",
-    hub: "seo",
+    category: "seo",
     title: "Local SEO & GMB Optimization",
     description: "Dominate local maps listings and neighborhood intent queries. We optimize Google Business Profile, clear NAP citation inconsistencies, and drive verified client reviews.",
     detailedContent: "Local Search Engine Optimization ensures local customers find your service when searching for local choices in their immediate neighborhood. We construct perfectly formatted NAP (Name, Address, Phone) citations inside trusted listings, implement advanced localized LocalBusiness schemas, and set up your Google Business Profile (GMB) with precise categories, high-resolution imagery, and reviews management routines. This eliminates Google Maps ranking issues and transforms local search clicks into real-world customers.",
@@ -96,7 +96,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   },
   {
     id: "seo-technical",
-    hub: "seo",
+    category: "seo",
     title: "Technical SEO & Performance Audit",
     description: "Construct a flawless technical foundation. We optimize site speeds, page indexability, robots directives, sitemaps, and strict Core Web Vitals targets.",
     detailedContent: "Technical SEO acts as the structural frame of your digital footprint. No matter how deep your content is, a slow-loading, poorly indexed web application will never rank. We conduct comprehensive multi-point diagnostic audits to secure optimal crawls. We resolve render-blocking resources, configure optimized sitemaps, clean up server response bottlenecks, and enforce rigorous security standards. This guarantees that modern search engines can easily fetch, interpret, and reward your digital investments.",
@@ -122,7 +122,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   },
   {
     id: "seo-geo",
-    hub: "seo",
+    category: "seo",
     title: "GEO Targeting SEO Strategy",
     description: "Launch multi-city lead generators and dedicated city landing pages featuring localized semantic queries and hyper-relevant localized content structure.",
     detailedContent: "GEO Targeting is the strategy of creating hyper-relevant, city-specific service pages that capture regional local intent. Instead of attempting a single blanket page for a vast country, we build elegant individual city nodes (e.g., SEO Services Bangalore, Chennai, Delhi) incorporating exact localized keywords, neighborhood landmarks, and localized case data. This shows geographical specialty to both human audiences seeking local proximity and search algorithms crawling for geographic indicators.",
@@ -150,7 +150,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   // 2. AI SEO Hub
   {
     id: "ai-aeo",
-    hub: "ai-seo",
+    category: "ai-seo",
     title: "Answer Engine Optimization (AEO)",
     description: "Format information specifically to serve as the direct answer for modern conversational AI engines like ChatGPT, Google AI Overviews, and Bing Copilot.",
     detailedContent: "AEO is the next stage of search visibility. Conversational assistants don't display lists of blue links; they synthesize a clean, direct answer for the user. We structure your web asset's content into digestible Q&A snippets, clear paragraph frames, and bulleted lists. By aligning your brand with exact informational triggers, we maximize the probability of your organization being quoted as the primary cited authority inside conversational interfaces.",
@@ -176,7 +176,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   },
   {
     id: "ai-geo",
-    hub: "ai-seo",
+    category: "ai-seo",
     title: "AI SEO GEO Landing Pages",
     description: "Develop city landing pages tailored perfectly for AI semantic parsing, structured explicitly with semantic entity identifiers and deep programmatic indexing.",
     detailedContent: "Traditional city landing pages are built for search engines. AI GEO Pages are built to satisfy deep semantic entity queries. We design these layouts with clean structural metadata, unambiguous geographical entity codes, and direct solutions matching regional problems. When a conversational AI platform is asked to find a 'top-rated reliable enterprise near Visakhapatnam', these customized architectures provide machines with the precise relational evidence they require to recommend your firm.",
@@ -202,7 +202,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   },
   {
     id: "ai-llm",
-    hub: "ai-seo",
+    category: "ai-seo",
     title: "LLM SEO Strategy & Planning",
     description: "Inject your business naturally into the training frameworks and retrieval databases of massive models. We optimize brands for semantic retrieval inclusion.",
     detailedContent: "LLM SEO is an advanced optimization strategy focused on ensuring your organization, products, and insights are represented within Large Language Model databases. Because models generate answers based on rich historical content pools, we utilize comprehensive digital publication methods, syndication across high-trust networks, and public domain citations. This guarantees your corporate identity becomes part of the knowledge patterns that models learn, leading to persistent natural mentions.",
@@ -228,7 +228,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   },
   {
     id: "ai-llmo",
-    hub: "ai-seo",
+    category: "ai-seo",
     title: "Large Language Model Optimization (LLMO)",
     description: "Align your website data with retrieval-augmented generation (RAG) pipelines. Clean data structure enables seamless inclusion in real-time AI context.",
     detailedContent: "LLMO is the practice of structuring real-time web assets so AI platforms can easily discover and cite your content in interactive sessions (such as via Search grounding plugins or Perplexity AI). We integrate clean schema markups, simplify nested structural trees, and provide clear corporate definitions. By turning unstructured articles into clean, machine-parsable reference objects, we ensure your text is selected as a priority source for live AI engine queries.",
@@ -254,7 +254,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   },
   {
     id: "ai-visibility",
-    hub: "ai-seo",
+    category: "ai-seo",
     title: "AI Search Engine Visibility Optimization",
     description: "Maximize your brand's presence in high-priority generative placements, Google AI Overviews layout blocks, and conversational recommendations lists.",
     detailedContent: "As standard SERPs transform into generative summary layers, securing real estate in the Google AI Overview section is vital. We perform deep analysis on conversational search patterns to discover what questions trigger generative boxes. We construct short-form authoritative definitions, comparison matrices, and clean contextual graphs that match the technical models behind AI Overviews. This ensures your brand is prominently displayed above generic listings.",
@@ -282,7 +282,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   // 3. Paid Advertising Hub
   {
     id: "ppc-google",
-    hub: "ppc",
+    category: "ppc",
     title: "High-ROI Google Ads Management",
     description: "Engage key target buyer intents, optimize your cost-per-click rates, construct top-performing landing architectures, and scale corporate inquiries.",
     detailedContent: "We build, expand, and manage Google Ads (AdWords) systems focused purely on conversion volume. Instead of optimizing for worthless click counts, we target exact purchasing keyword intent, design clean, persuasive and rapid landing page templates, and configure precise goal attribution mappings. From localized Search campaigns targeting Indian metros to international shopping layouts, we maximize real business returns on every rupee spent.",
@@ -308,7 +308,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   },
   {
     id: "ppc-social",
-    hub: "ppc",
+    category: "ppc",
     title: "Social Media Advertising (Meta, LinkedIn, Insta)",
     description: "Connect with target global audiences using highly focused demographic parameters, custom retargeting setups, and scroll-stopping creative layouts.",
     detailedContent: "Paid social media offers an unmatched avenue to build brand awareness and capture fresh leads. We build conversion-seeking social campaigns across major networks. Utilizing precise target profiles—such as specific startup founders, tech investors in Bangalore, or style audiences globally—we ensure your ad elements appear before the perfect prospective buyers. We handle copy, audience testing, and funnel tracking.",
@@ -336,7 +336,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   // 4. Content Marketing Hub
   {
     id: "content-blogging",
-    hub: "content",
+    category: "content",
     title: "SEO Copywriting & Content Hub Creation",
     description: "Launch top-performing blog databases, clear educational assets, and topical structures that capture client intent and establish topical authority.",
     detailedContent: "Search engines reward organizations that showcase absolute authority on target fields. We design complete content cluster structures matching what your buyers ask. Our specialized copywriters combine rich brand messaging with clear SEO semantics to produce highly readable, deeply educational, and conversational reference pieces. By utilizing structured layout guidelines, we write pages that satisfy readers and compile cleanly for search algorithms as well.",
@@ -362,7 +362,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   },
   {
     id: "content-guest",
-    hub: "content",
+    category: "content",
     title: "100% Manual Guest Posting & Link Building",
     description: "Secure safe, highly authoritative digital citations. No PBNs or link networks—just pure manual outreach and trusted editorial reference link profiles.",
     detailedContent: "Traditional backlink campaigns often fail due to unsafe link schemes that risk Google penalties. At AVR Web Consulting, we believe in 100% manual outreach. We pitch custom, editorial-grade articles directly to actual, operational web publishers in your niche. By building genuine relationships, we earn highly relevant contextual backlinks that act as verified votes of confidence. This elevates your domain authority safely in both traditional search and AI retrieval models.",
@@ -390,7 +390,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   // 5. Web Design & Development Hub
   {
     id: "web-wordpress",
-    hub: "web-dev",
+    category: "web-dev",
     title: "Custom WordPress SEO-First Development",
     description: "Launch high-conversion custom WordPress themes crafted specifically with lightning-fast codebases, fully decoupled dependencies, and integrated SEO plugins.",
     detailedContent: "A standard site template filled with bloated code slows down user experience and limits ranking achievements. We develop responsive custom WordPress sites engineered from line one with lightweight frameworks. Every block, page template, and utility is optimized for speed, fully semantic, and optimized with structural SEO plugins like RankMath or Yoast. This delivers a magnificent management experience for team members and a performance engine for digital marketing campaigns.",
@@ -416,7 +416,7 @@ export const SERVICE_DATA: ServiceItem[] = [
   },
   {
     id: "web-ecommerce",
-    hub: "web-dev",
+    category: "web-dev",
     title: "E-Commerce Architecture & Conversion SEO",
     description: "Construct scalable online store engines styled using modern e-commerce SEO frameworks. Optimize category pathways, product schema details, and shopping checkouts.",
     detailedContent: "E-Commerce SEO operates on scale. With hundreds of overlapping product configurations, avoiding duplicate indexing issues is critical. We develop lightning-fast online store architectures on WooCommerce and Shopify platforms. We set up precise canonical paths, build optimized product listings with detailed JSON-LD microdata (including real-time pricing, stock indicators, and customer reviews), and design friction-free checkouts to drive revenue.",

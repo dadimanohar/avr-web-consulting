@@ -154,16 +154,16 @@ export function AIAuditTool() {
   };
 
   return (
-    <div className="bg-navy-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl" id="ai-audit-component">
+    <div className="bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-xl shadow-slate-200/60" id="ai-audit-component">
       {/* Top Banner */}
-      <div className="bg-gradient-to-r from-brand-blue-700 to-brand-blue-500 px-6 py-4 flex items-center justify-between">
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <Bot className="text-white w-6 h-6 animate-pulse" />
-          <h3 className="font-display font-semibold text-white tracking-tight text-lg">
+          <h3 className="font-display font-bold text-white tracking-tight text-lg">
             AVR Interactive AI SEO Visualizer
           </h3>
         </div>
-        <span className="text-xs bg-navy-900/60 text-brand-blue-50 px-3 py-1 rounded-full font-mono font-medium">
+        <span className="text-xs bg-white/20 text-white px-3 py-1 rounded-full font-mono font-bold uppercase tracking-wider">
           v2.1 live
         </span>
       </div>
@@ -171,35 +171,35 @@ export function AIAuditTool() {
       <div className="p-6 md:p-8">
         {!isAuditing && !result && (
           <form onSubmit={handleStartAudit} className="space-y-5">
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-600 text-sm leading-relaxed font-semibold">
               Wondering if your web asset is invisible to modern systems like <strong>Google AI Overviews</strong> or <strong>ChatGPT</strong>? 
               Provide your details below to execute our dynamic SEO evaluation crawler immediately.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-medium text-slate-400 mb-2 uppercase tracking-wider">
+                <label className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-widest">
                   Target Domain URL
                 </label>
                 <input
                   type="url"
                   required
                   placeholder="https://example.com"
-                  className="w-full bg-[#05070c] border border-slate-700 rounded-lg px-4 py-3 text-slate-200 outline-none focus:border-brand-blue-500 transition-colors text-sm"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-colors text-sm font-semibold"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-slate-400 mb-2 uppercase tracking-wider">
+                <label className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-widest">
                   Target Keyword
                 </label>
                 <input
                   type="text"
                   required
                   placeholder="e.g., local SEO consultant Pune"
-                  className="w-full bg-[#05070c] border border-slate-700 rounded-lg px-4 py-3 text-slate-200 outline-none focus:border-brand-blue-500 transition-colors text-sm"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-colors text-sm font-semibold"
                   value={keyword}
                   onChange={(e) => setKeyword(e.target.value)}
                 />
@@ -207,16 +207,16 @@ export function AIAuditTool() {
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-slate-400 mb-2 uppercase tracking-wider">
+              <label className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-widest">
                 Industry Category
               </label>
               <select
-                className="w-full bg-[#05070c] border border-slate-700 rounded-lg px-4 py-3 text-slate-200 outline-none focus:border-brand-blue-500 transition-colors text-sm"
+                className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 outline-none focus:bg-white focus:border-blue-500 transition-colors text-sm font-semibold cursor-pointer"
                 value={industry}
                 onChange={(e) => setIndustry(e.target.value)}
               >
-                <option value="tech">Startups & Tech Software</option>
-                <option value="ecommerce">E-Commerce & Retail Stores</option>
+                <option value="tech">Startups &amp; Tech Software</option>
+                <option value="ecommerce">E-Commerce &amp; Retail Stores</option>
                 <option value="healthcare">Healthcare Clinics</option>
                 <option value="finance">Professional Financial Services</option>
               </select>
@@ -224,28 +224,28 @@ export function AIAuditTool() {
 
             <button
               type="submit"
-              className="w-full bg-brand-blue-500 hover:bg-brand-blue-600 text-white font-medium py-3 rounded-lg flex items-center justify-center space-x-2 transition-all shadow-lg shadow-brand-blue-500/15 cursor-pointer"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg flex items-center justify-center space-x-2 transition-all shadow-md shadow-blue-500/10 cursor-pointer"
             >
               <span>Analyze AI Visibility Index</span>
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-4 h-4 fill-white/20" />
             </button>
           </form>
         )}
 
         {isAuditing && (
           <div className="py-12 flex flex-col items-center justify-center text-center space-y-6">
-            <Loader className="w-12 h-12 text-brand-blue-500 animate-spin" />
+            <Loader className="w-12 h-12 text-blue-600 animate-spin" />
             <div className="space-y-2 max-w-md">
-              <h4 className="text-white font-medium text-base">Running Crawler Diagnosis</h4>
-              <p className="text-slate-400 text-sm font-mono leading-relaxed h-12">
+              <h4 className="text-slate-900 font-bold text-base">Running Crawler Diagnosis</h4>
+              <p className="text-slate-600 text-[11px] font-mono leading-relaxed h-12 font-bold uppercase tracking-wide">
                 {auditSteps[stepIndex]}
               </p>
             </div>
             
             {/* Progress Bar */}
-            <div className="w-full max-w-sm bg-slate-800 h-1.5 rounded-full overflow-hidden">
+            <div className="w-full max-w-sm bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200/40">
               <motion.div 
-                className="bg-brand-blue-500 h-full"
+                className="bg-gradient-to-r from-blue-500 to-indigo-600 h-full"
                 initial={{ width: '0%' }}
                 animate={{ width: `${((stepIndex + 1) / auditSteps.length) * 100}%` }}
                 transition={{ duration: 1.1 }}
@@ -257,31 +257,31 @@ export function AIAuditTool() {
         {result && (
           <div className="space-y-6">
             {/* Score Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center border-b border-slate-800 pb-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center border-b border-slate-200/60 pb-6">
               <motion.div 
-                className="flex flex-col items-center text-center bg-[#05070c] p-4 rounded-xl border border-slate-800"
+                className="flex flex-col items-center text-center bg-slate-50/70 p-4 rounded-xl border border-slate-200"
                 initial={{ opacity: 0, scale: 0.9, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
               >
-                <span className="text-xs text-slate-400 uppercase font-mono mb-1">Visibility Score</span>
-                <span className="text-4xl font-display font-bold text-slate-300">
+                <span className="text-[10px] text-slate-500 uppercase font-mono mb-1 font-bold tracking-widest animate-pulse">Visibility Score</span>
+                <span className="text-4xl font-display font-bold text-slate-900">
                   <CountUpScore score={result.score} />
-                  <span className="text-xl text-slate-600 font-semibold">/100</span>
+                  <span className="text-xl text-slate-400 font-semibold">/100</span>
                 </span>
-                <span className="text-xs text-slate-500 mt-2 font-mono">Needs Serious Optimization</span>
+                <span className="text-xs text-rose-600 mt-2 font-mono font-bold">Needs Immediate Action</span>
               </motion.div>
 
               <div className="space-y-2 md:col-span-2">
-                <div className="flex justify-between items-center bg-[#05070c] px-4 py-2 border border-slate-800 rounded-lg">
-                  <span className="text-sm text-slate-300">AEO Status</span>
-                  <span className="text-xs bg-rose-500/10 text-rose-400 px-2 py-1 rounded font-medium border border-rose-500/20">
+                <div className="flex justify-between items-center bg-slate-50/70 px-4 py-2 border border-slate-200 rounded-lg">
+                  <span className="text-sm text-slate-700 font-semibold">AEO Status</span>
+                  <span className="text-xs bg-rose-50 text-rose-600 px-2.5 py-1 rounded-full font-bold border border-rose-200/40">
                     {result.aeoStatus}
                   </span>
                 </div>
-                <div className="flex justify-between items-center bg-[#05070c] px-4 py-2 border border-slate-800 rounded-lg">
-                  <span className="text-sm text-slate-300">LLM Citation Retrieval Rating</span>
-                  <span className="text-xs bg-amber-500/10 text-amber-400 px-2 py-1 rounded font-medium border border-amber-500/20">
+                <div className="flex justify-between items-center bg-slate-50/70 px-4 py-2 border border-slate-200 rounded-lg">
+                  <span className="text-sm text-slate-700 font-semibold">LLM Citation Retrieval Rating</span>
+                  <span className="text-xs bg-amber-50 text-amber-600 px-2.5 py-1 rounded-full font-bold border border-amber-200/40">
                     {result.llmStatus}
                   </span>
                 </div>
@@ -291,13 +291,13 @@ export function AIAuditTool() {
             {/* Diagnostic Categories */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-3">
-                <h5 className="text-xs font-semibold text-rose-400 uppercase tracking-wide flex items-center space-x-1">
+                <h5 className="text-xs font-bold text-rose-600 uppercase tracking-widest flex items-center space-x-1">
                   <AlertTriangle className="w-3.5 h-3.5" />
-                  <span>Critical System Deficiencies</span>
+                  <span>Critical Deficiencies</span>
                 </h5>
                 <ul className="space-y-2">
                   {result.criticalIssues.map((issue, idx) => (
-                    <li key={idx} className="text-slate-300 text-xs leading-relaxed flex items-start space-x-2">
+                    <li key={idx} className="text-slate-600 text-xs leading-relaxed flex items-start space-x-2 font-semibold">
                       <span className="text-rose-500 shrink-0 font-bold">•</span>
                       <span>{issue}</span>
                     </li>
@@ -306,14 +306,14 @@ export function AIAuditTool() {
               </div>
 
               <div className="space-y-3">
-                <h5 className="text-xs font-semibold text-brand-blue-500 uppercase tracking-wide flex items-center space-x-1">
+                <h5 className="text-xs font-bold text-blue-600 uppercase tracking-widest flex items-center space-x-1">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>Verified positive traits</span>
                 </h5>
                 <ul className="space-y-2">
                   {result.positives.map((pos, idx) => (
-                    <li key={idx} className="text-slate-300 text-xs leading-relaxed flex items-start space-x-2">
-                      <span className="text-brand-blue-500 shrink-0 font-bold">•</span>
+                    <li key={idx} className="text-slate-600 text-xs leading-relaxed flex items-start space-x-2 font-semibold">
+                      <span className="text-blue-500 shrink-0 font-bold">•</span>
                       <span>{pos}</span>
                     </li>
                   ))}
@@ -322,15 +322,15 @@ export function AIAuditTool() {
             </div>
 
             {/* Recommendations / Next Steps Checklist */}
-            <div className="bg-brand-blue-600/5 border border-brand-blue-500/20 p-4 rounded-xl space-y-3">
-              <h5 className="text-xs font-semibold text-brand-blue-500 uppercase tracking-wide flex items-center space-x-1.5">
+            <div className="bg-indigo-50/20 border border-indigo-200/50 p-4 rounded-xl space-y-3 shadow-inner shadow-blue-500/5">
+              <h5 className="text-xs font-bold text-blue-600 uppercase tracking-widest flex items-center space-x-1.5">
                 <ShieldCheck className="w-4 h-4" />
                 <span>AI-Engineered Action Recommendations</span>
               </h5>
               <ul className="space-y-2">
                 {result.recommendations.map((rec, idx) => (
-                  <li key={idx} className="text-slate-300 text-xs leading-relaxed flex items-start space-x-2">
-                    <span className="text-brand-blue-500 shrink-0 font-mono font-bold">{idx + 1}.</span>
+                  <li key={idx} className="text-slate-600 text-xs leading-relaxed flex items-start space-x-2 font-semibold">
+                    <span className="text-blue-600 shrink-0 font-mono font-bold">{idx + 1}.</span>
                     <span>{rec}</span>
                   </li>
                 ))}
@@ -339,12 +339,12 @@ export function AIAuditTool() {
 
             {/* Lead Form to Download / Save Full Report */}
             {!hasSubmittedLead ? (
-              <form onSubmit={handleLeadFormSubmit} className="border-t border-slate-800 pt-6 space-y-4">
+              <form onSubmit={handleLeadFormSubmit} className="border-t border-slate-200/60 pt-6 space-y-4">
                 <div className="text-center md:text-left">
-                  <h5 className="text-white text-sm font-semibold tracking-tight">
+                  <h5 className="text-slate-900 text-sm font-bold tracking-tight">
                     Want the actionable technical directives for this audit?
                   </h5>
-                  <p className="text-slate-400 text-xs mt-1">
+                  <p className="text-slate-500 text-xs mt-1 font-semibold">
                     Provide your details below to lock in an expert SEO strategy session and download your complete PDF recommendations.
                   </p>
                 </div>
@@ -354,7 +354,7 @@ export function AIAuditTool() {
                     type="text"
                     required
                     placeholder="Your Name"
-                    className="bg-[#05070c] border border-slate-700 rounded px-3 py-2 text-slate-200 outline-none focus:border-brand-blue-500 text-xs"
+                    className="bg-slate-50 border border-slate-250 focus:bg-white focus:border-blue-500 rounded px-3 py-2 text-slate-800 outline-none focus:border-brand-blue-500 text-xs font-semibold"
                     value={contactInfo.name}
                     onChange={(e) => setContactInfo({ ...contactInfo, name: e.target.value })}
                   />
@@ -362,7 +362,7 @@ export function AIAuditTool() {
                     type="email"
                     required
                     placeholder="Your Email"
-                    className="bg-[#05070c] border border-slate-700 rounded px-3 py-2 text-slate-200 outline-none focus:border-brand-blue-500 text-xs"
+                    className="bg-slate-50 border border-slate-250 focus:bg-white focus:border-blue-500 rounded px-3 py-2 text-slate-800 outline-none focus:border-brand-blue-500 text-xs font-semibold"
                     value={contactInfo.email}
                     onChange={(e) => setContactInfo({ ...contactInfo, email: e.target.value })}
                   />
@@ -370,7 +370,7 @@ export function AIAuditTool() {
                     type="tel"
                     required
                     placeholder="Your Phone Number"
-                    className="bg-[#05070c] border border-slate-700 rounded px-3 py-2 text-slate-200 outline-none focus:border-brand-blue-500 text-xs"
+                    className="bg-slate-50 border border-slate-250 focus:bg-white focus:border-blue-500 rounded px-3 py-2 text-slate-800 outline-none focus:border-brand-blue-500 text-xs font-semibold"
                     value={contactInfo.phone}
                     onChange={(e) => setContactInfo({ ...contactInfo, phone: e.target.value })}
                   />
@@ -379,7 +379,7 @@ export function AIAuditTool() {
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   <button
                     type="submit"
-                    className="flex-1 bg-brand-blue-500 hover:bg-brand-blue-600 text-white font-medium py-2 px-4 rounded text-xs flex items-center justify-center space-x-1.5 transition-colors cursor-pointer"
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded text-xs flex items-center justify-center space-x-1.5 transition-colors cursor-pointer shadow-md shadow-blue-500/10"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Download Complete SEO PDF Blueprint</span>
@@ -390,24 +390,24 @@ export function AIAuditTool() {
                       setUrl('');
                       setResult(null);
                     }}
-                    className="bg-transparent border border-slate-700 hover:bg-slate-800 text-slate-300 font-medium py-2 px-4 rounded text-xs transition-colors cursor-pointer"
+                    className="bg-transparent border border-slate-200 hover:bg-slate-50 text-slate-705 font-bold py-2.5 px-4 rounded text-xs transition-colors cursor-pointer"
                   >
-                    Reset & Audit New Site
+                    Reset &amp; Audit New Site
                   </button>
                 </div>
               </form>
             ) : (
               <motion.div 
-                className="border-t border-slate-800 pt-6 text-center space-y-3"
+                className="border-t border-slate-200/60 pt-6 text-center space-y-3"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <div className="inline-flex p-2 bg-emerald-500/10 rounded-full border border-emerald-500/20 text-emerald-400">
+                <div className="inline-flex p-2 bg-emerald-50 rounded-full border border-emerald-200 text-emerald-600 shadow-sm shadow-emerald-500/10">
                   <CheckCircle2 className="w-6 h-6 animate-bounce" />
                 </div>
                 <div className="space-y-1">
-                  <h5 className="text-white text-sm font-semibold">Perfect! Diagnostic Document Generated Successfully</h5>
-                  <p className="text-slate-400 text-xs max-w-md mx-auto leading-relaxed">
+                  <h5 className="text-slate-900 text-sm font-bold">Perfect! Diagnostic Document Generated Successfully</h5>
+                  <p className="text-slate-550 text-xs max-w-md mx-auto leading-relaxed font-bold">
                     Our team is compiling the technical diagnostic and will ping you at <strong>{contactInfo.email}</strong> alongside our premium roadmap files within 24 hours.
                   </p>
                 </div>
@@ -418,9 +418,9 @@ export function AIAuditTool() {
                     setResult(null);
                     setHasSubmittedLead(false);
                   }}
-                  className="inline-flex text-xs text-brand-blue-500 hover:underline cursor-pointer"
+                  className="inline-flex text-xs text-blue-600 hover:underline cursor-pointer font-bold"
                 >
-                  Clear Results & Audit Another Website
+                  Clear Results &amp; Audit Another Website
                 </button>
               </motion.div>
             )}

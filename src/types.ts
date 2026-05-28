@@ -13,7 +13,7 @@ export interface MetricItem {
 
 export interface ServiceItem {
   id: string;
-  hub: 'seo' | 'ai-seo' | 'ppc' | 'content' | 'web-dev';
+  category: 'seo' | 'ai-seo' | 'ppc' | 'content' | 'web-dev';
   title: string;
   description: string;
   detailedContent: string;
